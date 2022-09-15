@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="conversations-container">
-                        <div v-for="(contact,index) in contacts" class="conversation">
+                        <div v-for="(contact,index) in contacts" class="conversation" @click="selectConversation(index)">
                             <div class="info-container">
                                 <img :src="contact.avatar" alt="" />
                                 <div class="description">
@@ -56,9 +56,9 @@
                     <!--  //////////////////////////////////////////////////////////////// CHAT-BLOCK-START -->
                     <div class="header">
                         <div class="info-container">
-                            <img src="img/avatar_1.jpg" alt="" />
+                            <img :src="conversationActiveAvatar" alt="" />
                             <div class="description">
-                                <h1>Michele</h1>
+                                <h1>{{conversationActiveName}}</h1>
                                 <p>Ultimo accesso oggi alle ore 12</p>
                             </div>
                         </div>
