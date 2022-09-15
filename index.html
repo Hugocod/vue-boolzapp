@@ -8,12 +8,75 @@
         <link rel="stylesheet" href="style.css" />
         <script src="app.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.10/vue.min.js" integrity="sha512-H8u5mlZT1FD7MRlnUsODppkKyk+VEiCmncej8yZW1k/wUT90OQon0F9DSf/2Qh+7L/5UHd+xTLrMszjHEZc2BA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
         <div id="root">
             <div class="wrapper">
-                <div class="contacts-container"></div>
-                <div class="chat-container"></div>
+                <div class="contacts-block">
+                    <!--  //////////////////////////////////////////////////////////////// CONTACTS-BLOCK-START -->
+                    <div class="header">
+                        <div class="info-container">
+                            <img src="img/avatar_1.jpg" alt="" />
+                            <div class="description">
+                                <h1>Michele</h1>
+                            </div>
+                        </div>
+                        <div class="icon-container">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <div class="notification"></div>
+                    <div class="search-container">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" />
+                    </div>
+
+                    <div class="conversations-container">
+                        <div v-for="(contact,index) in contacts" class="conversation">
+                            <div class="info-container">
+                                <img :src="contact.avatar" alt="" />
+                                <div class="description">
+                                    <h1>{{contact.name}}</h1>
+                                    <p>Ultimo accesso oggi alle ore 12</p>
+                                </div>
+                            </div>
+                            <div class="time-container">
+                                <h6>12:00</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- //////////////////////////////////////////////////////////////// CONTACTS-BLOCK-END -->
+                </div>
+
+                <div class="chat-block">
+                    <!--  //////////////////////////////////////////////////////////////// CHAT-BLOCK-START -->
+                    <div class="header">
+                        <div class="info-container">
+                            <img src="img/avatar_1.jpg" alt="" />
+                            <div class="description">
+                                <h1>Michele</h1>
+                                <p>Ultimo accesso oggi alle ore 12</p>
+                            </div>
+                        </div>
+                        <div class="icon-container">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                    <div class="message-container"></div>
+                    <div class="input-container">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <input type="text" />
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                    <!--  //////////////////////////////////////////////////////////////// CHAT-BLOCK-END -->
+                </div>
             </div>
         </div>
     </body>
