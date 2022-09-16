@@ -71,8 +71,21 @@
 
                     <div class="message-container">
                         <div v-for="messagesData in contacts[activeChatIndex].messages" class="single-message">
-                            <div class="sent-message" v-if="messagesData.status === 'sent' ">{{messagesData.message}}</div>
-                            <div class="received-message" v-else>{{messagesData.message}}</div>
+                            <div class="bubble-container" :class="messagesData.status === 'sent' ? 'b-sent' : 'b-received'">
+                                <div class="sent-message" v-if="messagesData.status === 'sent' ">
+                                    <p>{{messagesData.message}}</p>
+                                    <div>
+                                        <h6>{{extractHour(messagesData.date)}}</h6>
+                                    </div>
+                                </div>
+
+                                <div class="received-message" v-else>
+                                    <p>{{messagesData.message}}</p>
+                                    <div>
+                                        <h6>{{extractHour(messagesData.date)}}</h6>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

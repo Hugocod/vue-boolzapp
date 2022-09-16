@@ -91,6 +91,8 @@ img {
     background-color: rgb(82, 160, 26);
 
     margin: 10px;
+
+    position: relative;
 }
 
 h3 {
@@ -100,9 +102,35 @@ h3 {
 
 .sent-message {
     background-color: aqua;
-    text-align: right;
+    padding: 13px;
+    width: fit-content;
+    border-radius: 0.6rem;
+    background-color: #d5f9bb;
+
+    display: flex;
+    justify-content: end;
 }
 .received-message {
-    background-color: rgb(255, 98, 0);
-    text-align: left;
+    padding: 13px;
+
+    width: fit-content;
+
+    border-radius: 0.6rem;
+    background-color: #ffffff;
+
+    display: flex;
+    justify-content: end;
+}
+
+.bubble-container {
+    width: 100%;
+    display: flex;
+}
+
+.b-sent {
+    justify-content: end;
+}
+
+.b-received {
+    justify-content: start;
 }

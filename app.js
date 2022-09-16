@@ -173,5 +173,9 @@ const app = new Vue({
         selectActiveChat: function (index) {
             this.activeChatIndex = index;
         },
+        extractHour: function (date) {
+            let hourAndMinute = date.split(" ")[1].split(":");
+            return `${hourAndMinute[0]}:${hourAndMinute[1]}`;
+        },
     },
 });
