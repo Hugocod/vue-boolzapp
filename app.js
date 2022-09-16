@@ -162,19 +162,16 @@ const contacts = [
     },
 ];
 
-console.log(contacts);
-
 const app = new Vue({
     el: "#root",
     data: {
         contacts: contacts,
-        conversationActiveName: "Michele",
-        conversationActiveAvatar: "./img/avatar_1.jpg",
+
+        activeChatIndex: 0,
     },
     methods: {
-        selectConversation: function (index) {
-            this.conversationActiveName = this.contacts[index].name;
-            this.conversationActiveAvatar = this.contacts[index].avatar;
+        selectActiveChat: function (index) {
+            this.activeChatIndex = index;
         },
     },
 });

@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="conversations-container">
-                        <div v-for="(contact,index) in contacts" class="conversation" @click="selectConversation(index)">
+                        <div v-for="(contact,index) in contacts" class="conversation" :class="{ active : activeChatIndex === index }" @click="selectActiveChat(index)">
                             <div class="info-container">
                                 <img :src="contact.avatar" alt="" />
                                 <div class="description">
@@ -56,9 +56,9 @@
                     <!--  //////////////////////////////////////////////////////////////// CHAT-BLOCK-START -->
                     <div class="header">
                         <div class="info-container">
-                            <img :src="conversationActiveAvatar" alt="" />
+                            <img :src="contacts[activeChatIndex].avatar" alt="" />
                             <div class="description">
-                                <h1>{{conversationActiveName}}</h1>
+                                <h1>{{contacts[activeChatIndex].name}}</h1>
                                 <p>Ultimo accesso oggi alle ore 12</p>
                             </div>
                         </div>
@@ -69,10 +69,17 @@
                         </div>
                     </div>
 
-                    <div class="message-container"></div>
+                    <div class="message-container">
+                        <div v-for="messagesData in contacts[activeChatIndex].messages" class="single-message">
+                            <div class="sent-message" v-if="messagesData.status === 'sent' ">{{messagesData.message}}</div>
+                            <div class="received-message" v-else>{{messagesData.message}}</div>
+                        </div>
+                    </div>
+
                     <div class="input-container">
                         <i class="fa-regular fa-face-smile"></i>
                         <input type="text" />
+
                         <i class="fa-solid fa-microphone"></i>
                     </div>
                     <!--  //////////////////////////////////////////////////////////////// CHAT-BLOCK-END -->
