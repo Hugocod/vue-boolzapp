@@ -36,11 +36,25 @@
 
                     <div class="conversations-container">
                         <!-- tutti i contatti -->
-                        <div v-show="isEmpty" v-for="(contact,index) in contacts" class="conversation" :class="{ active : activeChatIndex === index }" @click="selectActiveChat(index)">
+                        <div v-if="inputFromUser.length === 0" v-for="(contact,index) in contacts" class="conversation" :class="{ active : activeChatIndex === index }" @click="selectActiveChat(index)">
                             <div class="info-container">
-                                <img :src="contactsImmutable.avatar" alt="" />
+                                <img :src="contact.avatar" alt="" />
                                 <div class="description">
-                                    <h1>{{contactsImmutable.name}}</h1>
+                                    <h1>{{contact.name}}</h1>
+                                    <p>Ultimo accesso oggi alle ore 12</p>
+                                </div>
+                            </div>
+                            <div class="time-container">
+                                <h6>12:00</h6>
+                            </div>
+                        </div>
+
+                        <!-- solo i contatti selezionati (filtered)-->
+                        <div v-if="inputFromUser.length != 0" v-for="(contact,index) in filteredContacts" class="conversation" :class="{ active : activeChatIndex === index }" @click="selectActiveChat(index)">
+                            <div class="info-container">
+                                <img :src="contact.avatar" alt="" />
+                                <div class="description">
+                                    <h1>{{contact.name}}</h1>
                                     <p>Ultimo accesso oggi alle ore 12</p>
                                 </div>
                             </div>
