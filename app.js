@@ -166,10 +166,10 @@ const app = new Vue({
     el: "#root",
     data: {
         contacts: contacts,
+        contactsImmutable: contacts, // mi serve per ripristinare l'array alla versione precedente
         activeChatIndex: 0,
-        isSearchingContact: "false",
+        isEmpty: true,
         inputFromUser: "",
-        filteredContacts: null,
     },
     methods: {
         selectActiveChat: function (index) {
@@ -180,12 +180,20 @@ const app = new Vue({
             return `${hourAndMinute[0]}:${hourAndMinute[1]}`;
         },
         selectContactsToShow: function () {
-            let inputFirstLetter = this.inputFromUser[0] != undefined ? this.inputFromUser[0].toUpperCase() : false;
-            this.filteredContacts = this.contacts.filter((contact, index) => {
-                return contact.name[0] == inputFirstLetter;
-            });
+            if (this.inputFromUser.length > 0) {
+                let filtered = (this.filteredContacts = this.contacts.filter((contact, index) => {
+                    return contact.name[0] === this.inputFromUser[0].toUpperCase();
+                }));
 
-            console.log(this.filteredContacts);
+                console.log(filtered);
+
+                filtered.length === 0 ? (this.isEmpty = false) : (this.isEmpty = true);
+
+                this.contacts = filtered;
+            } else {
+                console.log(this.contactsImmutable);
+                this.contacts = this.contactsImmutable;
+            }
         },
     },
 });
