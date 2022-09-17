@@ -166,8 +166,10 @@ const app = new Vue({
     el: "#root",
     data: {
         contacts: contacts,
-
         activeChatIndex: 0,
+        isSearchingContact: "false",
+        inputFromUser: "",
+        filteredContacts: null,
     },
     methods: {
         selectActiveChat: function (index) {
@@ -176,6 +178,14 @@ const app = new Vue({
         extractHour: function (date) {
             let hourAndMinute = date.split(" ")[1].split(":");
             return `${hourAndMinute[0]}:${hourAndMinute[1]}`;
+        },
+        selectContactsToShow: function () {
+            let inputFirstLetter = this.inputFromUser[0] != undefined ? this.inputFromUser[0].toUpperCase() : false;
+            this.filteredContacts = this.contacts.filter((contact, index) => {
+                return contact.name[0] == inputFirstLetter;
+            });
+
+            console.log(this.filteredContacts);
         },
     },
 });

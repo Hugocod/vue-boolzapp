@@ -83,6 +83,10 @@ img {
     align-items: center;
 }
 
+.conversation:hover {
+    background-color: #e9ebeb;
+}
+
 .active {
     background-color: #e9ebeb;
 }
