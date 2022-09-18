@@ -206,6 +206,14 @@ const app = new Vue({
             });
 
             this.chatInput = " ";
+
+            setTimeout(() => {
+                this.contacts[this.activeChatIndex].messages.push({
+                    date: "10/01/2020 15:51:00",
+                    message: "Hey, ciao 😄",
+                    status: "received",
+                });
+            }, 2000);
         },
     },
 });
