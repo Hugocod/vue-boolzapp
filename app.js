@@ -170,6 +170,8 @@ const app = new Vue({
         isSearchingContact: "false",
         inputFromUser: "",
         filteredContacts: null,
+        isFiltered: false,
+        chatInput: "",
     },
     methods: {
         selectActiveChat: function (index) {
@@ -186,6 +188,16 @@ const app = new Vue({
             });
 
             console.log(this.filteredContacts);
+        },
+
+        addMessage: function () {
+            this.contacts[this.activeChatIndex].messages.push({
+                date: "10/01/2020 15:51:00",
+                message: this.chatInput,
+                status: "sent",
+            });
+
+            this.chatInput = " ";
         },
     },
 });
