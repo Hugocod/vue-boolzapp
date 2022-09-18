@@ -199,17 +199,21 @@ const app = new Vue({
         },
 
         addMessage: function () {
+            /* Per calcolare l'orario corrente */
+            const d = new Date();
+
             this.contacts[this.activeChatIndex].messages.push({
-                date: "10/01/2020 15:51:00",
+                date: `00/00/0000 ${d.getHours()}:${d.getMinutes()}:00`,
                 message: this.chatInput,
                 status: "sent",
             });
 
-            this.chatInput = " ";
+            this.chatInput = " "; //Resetta l'input di testo
 
+            /* auto response */
             setTimeout(() => {
                 this.contacts[this.activeChatIndex].messages.push({
-                    date: "10/01/2020 15:51:00",
+                    date: `00/00/0000 ${d.getHours()}:${d.getMinutes()}:00`,
                     message: "Hey, ciao 😄",
                     status: "received",
                 });
