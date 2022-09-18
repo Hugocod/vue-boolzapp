@@ -181,13 +181,21 @@ const app = new Vue({
             let hourAndMinute = date.split(" ")[1].split(":");
             return `${hourAndMinute[0]}:${hourAndMinute[1]}`;
         },
-        selectContactsToShow: function () {
-            let inputFirstLetter = this.inputFromUser[0] != undefined ? this.inputFromUser[0].toUpperCase() : false;
-            this.filteredContacts = this.contacts.filter((contact, index) => {
-                return contact.name[0] == inputFirstLetter;
-            });
+        selectContactsToShow: function (contact) {
+            //////////////////////////////////////////////////////
 
-            console.log(this.filteredContacts);
+            if (this.inputFromUser.length < 1) {
+                // se il valore è zero deve mostrare tutti i contatti
+                return true;
+            } else {
+                // se il valore è diverso da zero li filtra */
+                let firstLetter = this.inputFromUser[0];
+                /* se è una stringa applica le maiuscole, altrimenti no */
+                typeof firstLetter === "string" ? (firstLetter = firstLetter.toUpperCase()) : firstLetter;
+                return firstLetter === contact.name[0];
+            }
+
+            //////////////////////////////////////////////////////
         },
 
         addMessage: function () {

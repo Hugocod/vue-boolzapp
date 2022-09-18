@@ -31,37 +31,28 @@
                     <div class="notification"></div>
                     <div class="search-container">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" v-model="inputFromUser" @input="selectContactsToShow" />
+                        <!-- INPUT for CONTACTS -->
+                        <input type="text" v-model="inputFromUser" />
                     </div>
 
                     <div class="conversations-container">
-                        <!-- tutti i contatti -->
-                        <div v-if="inputFromUser.length === 0" v-for="(contact,index) in contacts" class="conversation" :class="{ active : activeChatIndex === index }" @click="selectActiveChat(index)">
-                            <div class="info-container">
-                                <img :src="contact.avatar" alt="" />
-                                <div class="description">
-                                    <h1>{{contact.name}}</h1>
-                                    <p>Ultimo accesso oggi alle ore 12</p>
+                        <!--  //////////////////////////////////////////////////////////////// V-for CONTACTS START -->
+                        <div v-for="(contact,index) in contacts">
+                            <!-- li cicla tutti e poi li mostra solo a questa condizione -->
+                            <div v-if="selectContactsToShow(contact)" class="conversation" :class="{ active : activeChatIndex === index }" @click="selectActiveChat(index)">
+                                <div class="info-container">
+                                    <img :src="contact.avatar" alt="" />
+                                    <div class="description">
+                                        <h1>{{contact.name}}</h1>
+                                        <p>Ultimo accesso oggi alle ore 12</p>
+                                    </div>
+                                </div>
+                                <div class="time-container">
+                                    <h6>12:00</h6>
                                 </div>
                             </div>
-                            <div class="time-container">
-                                <h6>12:00</h6>
-                            </div>
                         </div>
-
-                        <!-- solo i contatti selezionati (filtered)-->
-                        <div v-if="inputFromUser.length != 0" v-for="(contact,index) in filteredContacts" class="conversation" :class="{ active : activeChatIndex === index }" @click="selectActiveChat(index)">
-                            <div class="info-container">
-                                <img :src="contact.avatar" alt="" />
-                                <div class="description">
-                                    <h1>{{contact.name}}</h1>
-                                    <p>Ultimo accesso oggi alle ore 12</p>
-                                </div>
-                            </div>
-                            <div class="time-container">
-                                <h6>12:00</h6>
-                            </div>
-                        </div>
+                        <!--  //////////////////////////////////////////////////////////////// V-for CONTACTS END -->
                     </div>
 
                     <!-- //////////////////////////////////////////////////////////////// CONTACTS-BLOCK-END -->
