@@ -9,6 +9,10 @@
         <script src="app.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.10/vue.min.js" integrity="sha512-H8u5mlZT1FD7MRlnUsODppkKyk+VEiCmncej8yZW1k/wUT90OQon0F9DSf/2Qh+7L/5UHd+xTLrMszjHEZc2BA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     </head>
     <body>
         <div id="root">
@@ -23,12 +27,24 @@
                             </div>
                         </div>
                         <div class="icon-container">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-regular fa-circle"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
-                    <div class="notification"></div>
+
+                    <div class="notification">
+                        <div class="info-container">
+                            <div class="bell-container">
+                                <i class="fa-solid fa-bell-slash"></i>
+                            </div>
+                            <div class="description">
+                                <h1>Ricevi notifiche nuovi messaggi</h1>
+                                <p>Attiva notifiche desktop</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="search-container">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <!-- INPUT for CONTACTS -->
@@ -44,7 +60,7 @@
                                     <img :src="contact.avatar" alt="" />
                                     <div class="description">
                                         <h1>{{contact.name}}</h1>
-                                        <p>Ultimo accesso oggi alle ore 12</p>
+                                        <p>Ultimo messaggio inviato</p>
                                     </div>
                                 </div>
                                 <div class="time-container">
@@ -70,8 +86,8 @@
                         </div>
                         <div class="icon-container">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
 

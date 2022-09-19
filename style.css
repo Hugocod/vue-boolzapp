@@ -2,7 +2,8 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+
+    font-family: "Open Sans", sans-serif;
 }
 
 h1,
@@ -48,7 +49,12 @@ p {
 
 .message-container {
     background-image: url(img/mine.jpg);
-    height: 100%;
+
+    overflow-y: scroll;
+    /*  height: 80vh; */
+
+    flex-grow: 1;
+    flex-basis: 50vh;
 }
 
 .header {
@@ -57,6 +63,16 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    padding: 10px;
+
+    border-left: 0.5px solid rgb(219, 218, 218);
+    border-right: 0.5px solid rgb(219, 218, 218);
+}
+
+.header p {
+    font-size: 0.8rem;
+    color: rgb(175, 170, 170);
 }
 
 .info-container {
@@ -66,6 +82,8 @@ p {
 img {
     border-radius: 50%;
     height: 50px;
+
+    margin-right: 10px;
 }
 
 .fa-solid {
@@ -80,7 +98,11 @@ img {
 .conversation {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /*  align-items: center; */
+
+    padding: 10px;
+    border-top: 0.5px solid rgb(219, 218, 218);
+    border-bottom: 0.5px solid rgb(219, 218, 218);
 }
 
 .active {
@@ -88,8 +110,6 @@ img {
 }
 
 .single-message {
-    background-color: rgb(82, 160, 26);
-
     margin: 10px;
 
     position: relative;
@@ -100,30 +120,40 @@ h3 {
     font-weight: 300;
 }
 
+h1 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.conversation p {
+    font-size: 0.8rem;
+    color: rgb(175, 170, 170);
+}
+
 .sent-message {
     background-color: aqua;
     padding: 13px;
-    width: fit-content;
+    max-width: 40%;
     border-radius: 0.6rem;
     background-color: #d5f9bb;
 
     display: flex;
-    justify-content: end;
+    align-items: end;
 }
 .received-message {
     padding: 13px;
 
-    width: fit-content;
+    max-width: 40%;
 
     border-radius: 0.6rem;
     background-color: #ffffff;
 
     display: flex;
-    justify-content: end;
+    align-items: end;
 }
 
 .bubble-container {
-    width: 100%;
+    max-width: 100%;
     display: flex;
 }
 
@@ -133,4 +163,99 @@ h3 {
 
 .b-received {
     justify-content: start;
+}
+
+.input-container {
+    padding: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.input-container input {
+    width: 80%;
+    height: 30px;
+    border: none;
+    border-radius: 0.2rem;
+}
+
+.time-container h6 {
+    font-size: 0.6rem;
+    color: rgb(175, 170, 170);
+    font-weight: 400;
+}
+
+.single-message h6 {
+    font-size: 0.6rem;
+    color: rgb(175, 170, 170);
+    font-weight: 400;
+
+    padding-left: 50px;
+}
+
+.notification {
+    background-color: #8edafc;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px;
+
+    border-left: 0.5px solid rgb(219, 218, 218);
+    border-right: 0.5px solid rgb(219, 218, 218);
+}
+
+.notification p {
+    font-size: 0.8rem;
+    color: rgb(113, 111, 111);
+    text-decoration: underline;
+}
+
+.fa-bell-slash {
+    color: #8edafc;
+    font-size: 1.2rem;
+}
+
+.bell-container {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+
+    border-radius: 505%;
+
+    background-color: rgb(255, 255, 255);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 5px;
+
+    background-color: #e9eae9;
+}
+
+.search-container input {
+    width: 95%;
+    height: 30px;
+    border: none;
+    border-radius: 0.2rem;
+}
+
+.search-container .fa-solid {
+    width: 5%;
+    text-align: center;
+    margin: 10px;
+}
+
+.fa-solid {
+    color: rgb(113, 111, 111);
 }
